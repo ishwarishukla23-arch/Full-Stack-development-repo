@@ -1,0 +1,28 @@
+<h1>Admin Dashboard - Appointments</h1>
+<table border="1" width="100%">
+    <tr>
+        <th>Customer</th>
+        <th>Item</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    <% appointments.forEach(app => { %>
+    <tr>
+        <td><%= app.userName %></td>
+        <td><%= app.itemId ? app.itemId.name : 'Deleted' %></td>
+        <td><%= app.appointmentDate %></td>
+        <td><strong><%= app.status %></strong></td>
+        <td>
+            <form action="/admin/update/<%= app._id %>" method="POST">
+                <select name="status">
+                    <option value="Approved">Approve</option>
+                    <option value="Cancelled">Cancel</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </td>
+    </tr>
+    <% }) %>
+</table>
+<a href="/">Back to Shop</a>

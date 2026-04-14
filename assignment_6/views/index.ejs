@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Portal</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #333; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: auto; }
+        .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid #007bff; }
+        .card h3 { margin-top: 0; color: #222; }
+        .price { font-size: 1.4rem; color: #28a745; font-weight: bold; margin: 15px 0; }
+        .btn { display: block; text-align: center; background: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 6px; font-weight: bold; }
+        .admin-link { display: block; text-align: center; margin-top: 40px; color: #999; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Available Used Vehicles</h1>
+    <div class="grid">
+        <% items.forEach(item => { %>
+            <div class="card">
+                <h3><%= item.name %></h3>
+                <p><strong><%= item.type %></strong></p>
+                <p style="color: #666;"><%= item.description %></p>
+                <div class="price">₹<%= item.price.toLocaleString('en-IN') %></div>
+                <a href="/book/<%= item._id %>" class="btn">Book Inspection</a>
+            </div>
+        <% }) %>
+    </div>
+    <a href="/admin" class="admin-link">Admin Dashboard</a>
+</body>
+</html>
