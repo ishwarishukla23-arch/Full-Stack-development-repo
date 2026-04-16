@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Weather Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <header>
+            <div class="title-group">
+                <h1>SkyCast Pro</h1>
+                <p>Metrological Station ID: #44092</p>
+            </div>
+            <button class="glow-button" onclick="refreshWeather()">📡 Update Live Sensors</button>
+        </header>
+
+        <main class="grid-layout">
+            <div class="glass-card">
+                <h3>Temperature Trend (24h)</h3>
+                <canvas id="tempChart"></canvas>
+            </div>
+
+            <div class="glass-card">
+                <h3>Air Quality Index</h3>
+                <canvas id="aqiChart"></canvas>
+            </div>
+
+            <div class="glass-card wide">
+                <h3>7-Day Precipitation Forecast</h3>
+                <canvas id="precipChart"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
